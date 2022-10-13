@@ -31,7 +31,7 @@ After recieving this message you should type yes and press enter.
 - You may have noticed that ls lists all the files in the directory, cd changes the directory and so on and so forth.  
 ![Image](Commandex.png) 
 
-4) ***Moving Files With scp  
+4) ***Moving Files With scp*** 
 - So far we have worked with basic commands in your terminal, now we are going to step it up a notch and learn how to copy files back and forth between computers!  
 
 - The command that we are going to use for this is scp  
