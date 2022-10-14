@@ -53,12 +53,13 @@ class WhereAmI {
 - java WhereAmI  
 
   ![image](WhereAmI.png)
+  ![image](finalWhereAmI.png)  
 - Next run the following commands in the terminal (using your username)  
 - scp WhereAmI.java cs15lfa22zz@ieng6.ucsd.edu:~/   
  
 - Next log into ieng6 with ssh and use ls and use getProperty (I ran into an error at this part when using getProperty) 
 - you should see something simmilar to the screenshot below:
-![image](finalWhereAmI.png)  
+  
 
 ![Image](ls.png)  
 
