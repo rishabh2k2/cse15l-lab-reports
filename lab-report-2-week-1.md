@@ -52,11 +52,13 @@ class WhereAmI {
 - javac WhereAmI.java  
 - java WhereAmI  
 
+  ![image](WhereAmI.png)
 - Next run the following commands in the terminal (using your username)  
-- scp WhereAmI.java cs15lfa22zz@ieng6.ucsd.edu:~/  
+- scp WhereAmI.java cs15lfa22zz@ieng6.ucsd.edu:~/   
  
 - Next log into ieng6 with ssh and use ls and use getProperty (I ran into an error at this part when using getProperty) 
-- you should see something simmilar to the screenshot below:  
+- you should see something simmilar to the screenshot below:
+![image](finalWhereAmI.png)  
 
 ![Image](ls.png)  
 
@@ -72,3 +74,10 @@ class WhereAmI {
 - you can now write a command in quotes at the end of ssh command to directly run it in a remote server, this would look something like:  
 - $ ssh rkalyanakumar@ieng6.ucsd.edu "ls"
 and it would then list all the files in the directory you are in.
+
+![image](runtime.png  )
+
+
+
+
+
