@@ -175,7 +175,7 @@ Author: *Rishabh Kalyanakumar*
         at ListTest.TestListMerge(ListTest.java:20)
 
 3) **The bug (the code fix needed)**  
-# code block
+# 
     While index2 < list2.size(){
     result.add(list2.(getIndex2))
     index2 +=1:
