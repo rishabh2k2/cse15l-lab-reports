@@ -99,6 +99,7 @@ Author: *Rishabh Kalyanakumar*
 # **PART 2**
  ***Testing ArrayExamples.java:***  
  1) The failure-inducing input (the code of the test):  
+    - In this particular test the failure inducing input for the array {1,2,3,4,5,6,7,8,,9,10}, when the test ran and failed the output that I recieved was "arrays first differed at element [0]; expected:<10> but was:<0>". the symptom was that the first element expected 10 to be the value when returning but we got 0 instead.
   
   # 
  
@@ -132,8 +133,20 @@ Author: *Rishabh Kalyanakumar*
         at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)
         ... 36 more
 3) **The bug (the code fix needed)**  
+Inital bug : The bug in this method that I noticed was that when the index exceeded the halfway length of the array, the elements would be stopped from swapping.
+#  
+    static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = newArray[arr.length - i - 1];
+    }
+    return arr;
+    }
+  
+  
   # 
-    
+   
+    The Fix:
     Static void reverseinplace(int[]arr){
         int temp;
         for(int i = 0; i < arr.length/2; i += 1) {
@@ -150,6 +163,7 @@ Author: *Rishabh Kalyanakumar*
 
  ***Testing ArrayExamples.java:***  
  1) The failure-inducing input (the code of the test):  
+ - In this particular test the failure inducing input was just adding elements to the list and the error out put that I recieved was "out of memory error" and expected:<[x,[x,y,z,t,e]]> but was:<[x,[ t, e, x, y, z]]. The symptom was the out of memory error that I recieved.
 
  # 
     @Test
@@ -175,6 +189,17 @@ Author: *Rishabh Kalyanakumar*
         at ListTest.TestListMerge(ListTest.java:20)
 
 3) **The bug (the code fix needed)**  
+Intial Bug: The bug in this method that I noticed was that in the last loop index1 was incremented instead of index 2, this made it so that the loop was infinte.
+# 
+    while(index2 < list2.size()) {
+      result.add(list2.get(index2));
+      index1 += 1;
+    }
+    return result;
+    }
+
+
+Bug fix:
 # 
     While index2 < list2.size(){
     result.add(list2.(getIndex2))
@@ -184,5 +209,7 @@ Author: *Rishabh Kalyanakumar*
 - This bug fix ensures that it ends the infite while loop that takes place  
 4) ***The connection between the symptom and the bug***  
 - The connection between the symptom and the bug is that in the last while loop, index 1 was incremented instead of index 2 so there was an infinite loop and the bug fix ends the infite loop
+
+    
 
     
