@@ -41,7 +41,7 @@ Instructions:
  7. ```:wq``` ```<Enter>```
    saving + exiting vim and returning to terminal:  
 
-  ![image](4.7.png)
+  ![image](exit.png)
 
 
 # Part 2
