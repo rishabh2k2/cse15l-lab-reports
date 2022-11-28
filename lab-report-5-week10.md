@@ -4,22 +4,26 @@
 Code block of grade.sh:
 
 # 
+   
+
+     set -e
      rm -rf student-submission
      mkdir student-submission
-     git clone $1 student-submission
-     cp TestListExamples.java student-submission
-     cp lib/hamcrest-core-1.3.jar student-submission
-     cp lib/junit-4.13.2.jar student-submission
-     cd student-submission
-     r
 
-     if [[ -f ListExamples.java ]]
-     then 
-         echo "FILE FOUND"
-     else 
-         echo "FILE NOT FOUND"
-         echo "SCORE: 0/5"
-     exit
+     git clone $1 student submission
+
+     cp TestListExamples.java student-submission
+     cd student-submission
+
+     CPATH=.:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar
+
+     if [[ -f ListExamples.java ]];
+     then
+       echo "FILE FOUND (1/1)"
+     else
+        echo "FILE NOT FOUND (0/1)"
+        echo "SCORE: 0/5"
+        exit 1
      fi
 
      set +e
@@ -28,27 +32,27 @@ Code block of grade.sh:
 
      if [[ $? -eq 0 ]]
      then
-         echo "COMPILED SUCCESFFULLY (1/1)"
+      echo "COMPILED SUCCESFFULLY (1/1)"
      else
-         echo "COMPILED UNSUCCESSFULLY (0/1)"
-         echo "SCORE: 1/5"
-         cat compile-err.txt
-         exit 2
+       echo "COMPILED UNSUCCESSFULLY (0/1)"
+       echo "SCORE: 1/5"
+       cat compile-err.txt
+        exit 2
      fi
 
-     java -cp ".;hamcrest-core-1.3.jar;junit-4.13.2.jar" org.junit.runner.JUnitCore TestListExamples 2> RuntimeError.txt > RuntimeOutput.txt
-     if [ $? -eq 0 ]
-     then
-       echo " ALL TESTS PASSED"
-       echo "SCORE: 5/5"
-       exit
-     else
-       echo "TEST FAILED"
-       echo "SCORE 2/5"
-       cat RuntimeOutput.txt
-     exit
-     fi
+      java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > test-err.txt
 
+     if [[ $? -eq 0 ]]
+     then 
+      echo "ALL TESTS PASSED"
+      echo "SCORE: 5/5"
+      exit
+      else
+      echo "TEST FAILED"
+      echo "SCORE: 2/5"
+      cat test-err.txt
+     exit 3
+        
 
 I was having trouble running the GradeServer.java file (I ended up running it locally) as you can you see below: 
 ![image](Server.png)
